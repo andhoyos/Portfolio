@@ -1,0 +1,139 @@
+/* tablet view */
+@media (max-width: 996px) {
+  html {
+    font-size: 14px;
+  }
+  /* toggle btn */
+  .toggle-btn {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    right: 10vw;
+    cursor: pointer;
+  }
+  .toggle-btn span {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #fff;
+    top: 30%;
+    transition: 0.5s;
+  }
+
+  .toggle-btn span:nth-child(1) {
+    top: 70%;
+  }
+  .toggle-btn span:nth-child(2) {
+    top: 50%;
+  }
+  .toggle-btn.active span:nth-child(1),
+  .toggle-btn.active span:nth-child(3) {
+    top: 50%;
+    transform: rotate(45deg);
+  }
+  .toggle-btn.active span:nth-child(2) {
+    top: 50%;
+    transform: rotate(-45deg);
+  }
+
+  /* links */
+  .links_container {
+    position: absolute;
+    top: 60px;
+    background: #1a202c;
+    width: 100%;
+    left: 0;
+    padding: 0 10vw;
+    flex-direction: column;
+    transition: 0.5s;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .links_container.show {
+    opacity: 1;
+    pointer-events: all;
+  }
+  .link {
+    margin-left: auto;
+    text-align: center;
+    display: block;
+    height: 50px;
+  }
+
+  /* home section */
+  .home {
+    flex-direction: column-reverse;
+    height: fit-content;
+    padding: 50px;
+  }
+
+  .home-image {
+    align-self: inherit;
+    margin: inherit;
+    width: 250px;
+  }
+
+  .hero-content {
+    width: 70%;
+    min-width: 350px;
+    text-align: center;
+  }
+  .hero-heading {
+    font: size 4.5rem;
+  }
+
+  /* about section */
+  .about-container {
+    grid-template-columns: 1fr;
+  }
+  .left-col {
+    margin: auto;
+    width: 50%;
+    min-width: 320px;
+  }
+
+  .skill-container,
+  .project-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .skill-card {
+    grid-column: 1 span !important;
+  }
+}
+/* mobile view */
+@media (max-width: 500px) {
+  html {
+    font: size 12px;
+  }
+  p,
+  .sub-heading,
+  .about-para,
+  .let-col::before,
+  .tags {
+    font-size: 1.4rem;
+  }
+  .about.image {
+    width: 90%;
+    margin: auto;
+    display: block;
+  }
+  .skill-container,
+  .project-container {
+    grid-template-columns: 1fr;
+  }
+  .skill {
+    font-size: 2.5rem;
+  }
+  .project-name {
+    font-size: 3rem;
+  }
+  .name {
+    flex-direction: column;
+  }
+  .name input {
+    width: 100%;
+  }
+  .first-name {
+    margin-bottom: 20px !important;
+  }
+}
