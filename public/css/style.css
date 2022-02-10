@@ -29,7 +29,7 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100vw;
   height: 60px;
   background: var(--background);
   padding: 0 10vw;
@@ -88,6 +88,10 @@ body {
 
 /* Home section */
 .home {
+  /* background-image: url(../images/home.jpg);
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover; */
   width: 100%;
   min-height: calc(100vh - 60px);
   height: auto;

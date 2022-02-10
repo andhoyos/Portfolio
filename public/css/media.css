@@ -62,12 +62,14 @@
 
   /* home section */
   .home {
+    margin-top: auto;
     flex-direction: column-reverse;
     height: fit-content;
     padding: 50px;
   }
 
   .home-image {
+    margin-top: 100px !important;
     align-self: inherit;
     margin: inherit;
     width: 250px;
