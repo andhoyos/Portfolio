@@ -86,6 +86,17 @@ body {
   background: var(--color);
 }
 
+.navMedia {
+  width: 100%;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+  justify-items: center;
+}
+
+.navMedia img {
+  height: 40px;
+}
+
 /* Home section */
 .home {
   /* background-image: url(../images/home.jpg);

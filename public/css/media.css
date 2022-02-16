@@ -114,6 +114,37 @@
   .tags {
     font-size: 1.4rem;
   }
+
+  .navbar {
+    display: initial;
+    border-top: 2px solid;
+    border-radius: 8px;
+    bottom: 0;
+    top: unset;
+    padding: 0 10px;
+    height: 80px;
+  }
+  .links_container,
+  .toggle-btn,
+  footer {
+    display: none;
+  }
+
+  .linkContact {
+    display: block;
+  }
+
+  .contact-form {
+    margin-bottom: 100px;
+  }
+  .navMedia {
+    display: grid;
+    padding: 15px 0;
+  }
+
+  .home-image {
+    margin-top: 10px !important;
+  }
   .about.image {
     width: 90%;
     margin: auto;

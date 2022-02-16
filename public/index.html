@@ -5,14 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Personal web</title>
-
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/media.css" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
   </head>
   <body>
     <!-- navbar -->
     <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="navMedia" hidden>
+        <!-- <i class="fa fa-home" style="font-size: 40px"></i> -->
+        <a href="#"><img src="./images/home.png" alt="" title="Home" /></a>
+        <a href="#about-section"
+          ><img src="./images/about.png" alt="" title="About me"
+        /></a>
+        <a href="#project-section"
+          ><img src="./images/projects.png" alt="" title="Projects"
+        /></a>
+        <a href="#contact-section"
+          ><img src="./images/contact.png" alt="" title="Contact"
+        /></a>
+      </div>
       <!-- <h1 class="brand">Logo</h1> -->
       <div class="toggle-btn">
         <span></span>
@@ -51,6 +67,16 @@
         <button onclick="window.location.href='#contact-section'">
           Contacto
         </button>
+        <div class="linkContact" hidden>
+          <a href="https://github.com/andhoyos" target="_blank"
+            ><img class="img-contact" src="images/git.png" alt="git"
+          /></a>
+          <a
+            href="https://www.linkedin.com/in/andres-fabian-hoyos-9bb161189"
+            target="_blank"
+            ><img class="img-contact" src="images/linkedin.png" alt="linkedin"
+          /></a>
+        </div>
       </div>
       <img
         src="./images/cv.jpg"
