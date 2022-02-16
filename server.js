@@ -64,6 +64,7 @@ app.post("/mail", (req, res) => {
         }
       });
     } catch (err) {
+      res.json("Opps, an unexpected error has occurred please, try again.");
       console.log(err);
     }
   }
