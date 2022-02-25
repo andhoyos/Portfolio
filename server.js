@@ -70,6 +70,6 @@ app.post("/mail", (req, res) => {
   }
   sendMail();
 });
-app.listen(5000, () => {
+app.listen(process.env.PORT || 5000, () => {
   console.log("servidor iniciado en puerto 5000");
 });
