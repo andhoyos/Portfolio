@@ -97,9 +97,9 @@ send.addEventListener("click", () => {
       }),
     })
       .then((res) => res.json())
-      .then((data) => {
+      .then((res) => {
         Swal.fire({
-          title: data,
+          title: res,
           padding: "3em",
           color: "#560bad",
         });
