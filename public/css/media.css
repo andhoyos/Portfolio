@@ -139,7 +139,12 @@
   }
   .navMedia {
     display: grid;
-    padding: 15px 0;
+    padding: 10px 0 0 0;
+  }
+
+  .navText {
+    display: grid;
+    padding: 5px 0;
   }
 
   .home-image {

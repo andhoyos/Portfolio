@@ -110,7 +110,3 @@ send.addEventListener("click", () => {
       });
   }
 });
-
-function alert() {
-  // let timerInterval;
-}
