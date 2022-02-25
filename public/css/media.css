@@ -72,7 +72,8 @@
     margin-top: 100px !important;
     align-self: inherit;
     margin: inherit;
-    width: 250px;
+    height: 180px;
+    width: 180px;
   }
 
   .hero-content {
@@ -89,6 +90,7 @@
     grid-template-columns: 1fr;
   }
   .left-col {
+    text-align: -webkit-center;
     margin: auto;
     width: 50%;
     min-width: 320px;
