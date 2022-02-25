@@ -94,7 +94,7 @@ body {
 }
 
 .navMedia img {
-  height: 2.6em;
+  height: 2.2em;
 }
 
 /* Home section */
@@ -305,7 +305,7 @@ button:active:before {
   position: relative;
 }
 
-.left-col::before {
+/* .left-col::before {
   content: "asi soy :)";
   text-transform: capitalize;
   position: absolute;
@@ -322,7 +322,7 @@ button:active:before {
   background: var(--color);
   transform-origin: right;
   transform: rotate(-30deg);
-}
+} */
 
 .about-image,
 .home-image {
@@ -488,6 +488,9 @@ button:active:before {
   display: inline-flex;
 }
 
-.img-contact {
+.img-linkedin {
   height: 50px;
+}
+.img-git {
+  height: 55px;
 }

@@ -122,7 +122,7 @@
     bottom: 0;
     top: unset;
     padding: 0 10px;
-    height: 80px;
+    height: 70px;
   }
   .links_container,
   .toggle-btn,
@@ -144,7 +144,7 @@
 
   .navText {
     display: grid;
-    padding: 5px 0;
+    padding: 3px 0 5px 0;
   }
 
   .home-image {
