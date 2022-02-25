@@ -95,17 +95,18 @@ send.addEventListener("click", () => {
         email: email.value,
         msg: msg.value,
       }),
-    }).then((res) => res.json());
-    // .then((res) => {
-    //   Swal.fire({
-    //     title: res,
-    //     padding: "3em",
-    //     color: "#560bad",
-    //   });
-    //   firstName.value = "";
-    //   lastName.value = "";
-    //   email.value = "";
-    //   msg.value = "";
-    // });
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        Swal.fire({
+          title: res,
+          padding: "3em",
+          color: "#560bad",
+        });
+        firstName.value = "";
+        lastName.value = "";
+        email.value = "";
+        msg.value = "";
+      });
   }
 });
