@@ -88,7 +88,10 @@ send.addEventListener("click", () => {
       "width: 80px; height: 80px; border: 6px solid; border-color: #2778c4 transparent #2778c4 transparent;";
     fetch("/mail", {
       method: "POST",
-      headers: new Headers({ "Content-type": "application/json" }),
+      headers: new Headers({
+        "Content-type": "application/json",
+        Accept: "application/json",
+      }),
       body: JSON.stringify({
         firstName: firstName.value,
         lastName: lastName.value,
@@ -97,9 +100,9 @@ send.addEventListener("click", () => {
       }),
     })
       .then((res) => res.json())
-      .then((res) => {
+      .then((data) => {
         Swal.fire({
-          title: res,
+          title: data,
           padding: "3em",
           color: "#560bad",
         });

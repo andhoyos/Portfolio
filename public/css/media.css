@@ -124,7 +124,7 @@
     bottom: 0;
     top: unset;
     padding: 0 10px;
-    height: 70px;
+    height: 60px;
   }
   .links_container,
   .toggle-btn,
@@ -137,23 +137,24 @@
   }
 
   .contact-form {
-    margin-bottom: 100px;
+    margin-bottom: 8vh;
   }
   .navMedia {
     display: grid;
-    padding: 10px 0 0 0;
+    padding: 5px 0 0 0;
   }
 
   .navText {
     display: grid;
-    padding: 3px 0 5px 0;
+    padding: 0 0 5px 0;
+    font-size: 12px;
   }
 
   .home-image {
     margin-top: 10px !important;
   }
-  .about.image {
-    width: 90%;
+  .about-image {
+    width: 180px;
     margin: auto;
     display: block;
   }
