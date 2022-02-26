@@ -86,23 +86,19 @@ send.addEventListener("click", () => {
     const loader = document.querySelector(".swal2-loader");
     loader.style =
       "width: 80px; height: 80px; border: 6px solid; border-color: #2778c4 transparent #2778c4 transparent;";
-    fetch("/mail", {
-      method: "POST",
-      headers: new Headers({
-        "Content-type": "application/json",
-        Accept: "application/json",
-      }),
-      body: JSON.stringify({
-        firstName: firstName.value,
-        lastName: lastName.value,
-        email: email.value,
-        msg: msg.value,
-      }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
+    axios
+      .post("/mail", {
+        body: JSON.stringify({
+          firstName: firstName.value,
+          lastName: lastName.value,
+          email: email.value,
+          msg: msg.value,
+        }),
+      })
+      .then(function (res) {
+        console.log(res.data);
         Swal.fire({
-          title: data,
+          title: res.data,
           padding: "3em",
           color: "#560bad",
         });
@@ -110,6 +106,35 @@ send.addEventListener("click", () => {
         lastName.value = "";
         email.value = "";
         msg.value = "";
+      })
+      .catch(function (error) {
+        console.log(error);
       });
+
+    // fetch("/mail", {
+    //   method: "POST",
+    //   headers: new Headers({
+    //     "Content-type": "application/json",
+    //     Accept: "application/json",
+    //   }),
+    //   body: JSON.stringify({
+    //     firstName: firstName.value,
+    //     lastName: lastName.value,
+    //     email: email.value,
+    //     msg: msg.value,
+    //   }),
+    // })
+    // .then((res) => res.json())
+    // .then((data) => {
+    //   Swal.fire({
+    //     title: data,
+    //     padding: "3em",
+    //     color: "#560bad",
+    //   });
+    //   firstName.value = "";
+    //   lastName.value = "";
+    //   email.value = "";
+    //   msg.value = "";
+    // });
   }
 });
