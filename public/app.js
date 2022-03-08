@@ -111,7 +111,7 @@ send.addEventListener("click", () => {
     //     console.log(error);
     //   });
 
-    fetch("/mail", {
+    const options = {
       method: "POST",
       headers: new Headers({
         "Content-type": "application/json",
@@ -123,7 +123,8 @@ send.addEventListener("click", () => {
         email: email.value,
         msg: msg.value,
       }),
-    })
+    };
+    return fetch("/mail", options)
       .then((res) => res.json())
       .then((data) => {
         Swal.fire({
