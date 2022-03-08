@@ -111,19 +111,39 @@ send.addEventListener("click", () => {
     //     console.log(error);
     //   });
 
-    fetch("/mail", {
-      method: "POST",
-      headers: new Headers({
-        "Content-type": "application/json",
-        Accept: "application/json",
-      }),
-      // body: JSON.stringify({
-      //   firstName: firstName.value,
-      //   lastName: lastName.value,
-      //   email: email.value,
-      //   msg: msg.value,
-      // }),
-    });
+    (async () => {
+      try {
+        let response = await fetch("/mail", {
+          method: "POST",
+          headers: new Headers({
+            "Content-type": "application/json",
+            Accept: "application/json",
+          }),
+          body: JSON.stringify({
+            firstName: firstName.value,
+            lastName: lastName.value,
+            email: email.value,
+            msg: msg.value,
+          }),
+        });
+      } catch (error) {
+        alert(error);
+      }
+    })();
+
+    // fetch("/mail", {
+    //   method: "POST",
+    //   headers: new Headers({
+    //     "Content-type": "application/json",
+    //     Accept: "application/json",
+    //   }),
+    // body: JSON.stringify({
+    //   firstName: firstName.value,
+    //   lastName: lastName.value,
+    //   email: email.value,
+    //   msg: msg.value,
+    // }),
+    // });
     // .then((res) => res.json())
     // .then((data) => {
     //   Swal.fire({
