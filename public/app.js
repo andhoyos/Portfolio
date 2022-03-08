@@ -111,50 +111,30 @@ send.addEventListener("click", () => {
     //     console.log(error);
     //   });
 
-    (async () => {
-      try {
-        let response = await fetch("/mail", {
-          method: "POST",
-          headers: new Headers({
-            "Content-type": "application/json",
-            Accept: "application/json",
-          }),
-          body: JSON.stringify({
-            firstName: firstName.value,
-            lastName: lastName.value,
-            email: email.value,
-            msg: msg.value,
-          }),
+    fetch("/mail", {
+      method: "POST",
+      headers: new Headers({
+        "Content-type": "application/json",
+        Accept: "application/json",
+      }),
+      body: JSON.stringify({
+        firstName: firstName.value,
+        lastName: lastName.value,
+        email: email.value,
+        msg: msg.value,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        Swal.fire({
+          title: data,
+          padding: "3em",
+          color: "#560bad",
         });
-      } catch (error) {
-        alert(error);
-      }
-    })();
-
-    // fetch("/mail", {
-    //   method: "POST",
-    //   headers: new Headers({
-    //     "Content-type": "application/json",
-    //     Accept: "application/json",
-    //   }),
-    // body: JSON.stringify({
-    //   firstName: firstName.value,
-    //   lastName: lastName.value,
-    //   email: email.value,
-    //   msg: msg.value,
-    // }),
-    // });
-    // .then((res) => res.json())
-    // .then((data) => {
-    //   Swal.fire({
-    //     title: data,
-    //     padding: "3em",
-    //     color: "#560bad",
-    //   });
-    //   firstName.value = "";
-    //   lastName.value = "";
-    //   email.value = "";
-    //   msg.value = "";
-    // });
+        firstName.value = "";
+        lastName.value = "";
+        email.value = "";
+        msg.value = "";
+      });
   }
 });

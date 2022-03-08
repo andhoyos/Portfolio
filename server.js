@@ -58,7 +58,6 @@ app.post("/mail", (req, res) => {
       const result = await transporter.sendMail(mailOptions, (err, result) => {
         if (err) {
           console.log(err);
-          res.json("Opps, an unexpected error has occurred please, try again.");
         } else {
           res.json("Thank you for contacting me, I will respond soon");
         }
