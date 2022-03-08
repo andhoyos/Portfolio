@@ -111,7 +111,7 @@ send.addEventListener("click", () => {
     //     console.log(error);
     //   });
 
-    const options = {
+    fetch("/mail", {
       method: "POST",
       headers: new Headers({
         "Content-type": "application/json",
@@ -123,31 +123,18 @@ send.addEventListener("click", () => {
         email: email.value,
         msg: msg.value,
       }),
-    };
-    return fetch("/mail", options).then((res) => {
-      if (res.status === 200) {
+    })
+      .then((res) => res.json())
+      .then((data) => {
         Swal.fire({
-          icon: "success",
-          title: "Your message has been sent Successfully!",
+          title: data,
+          padding: "3em",
+          color: "#560bad",
         });
-      } else {
-        Swal.fire({
-          icon: "error",
-          title: "Error, please try agian!",
-        });
-      }
-    });
-    // .then((res) => res.json())
-    // .then((data) => {
-    //   Swal.fire({
-    //     title: data,
-    //     padding: "3em",
-    //     color: "#560bad",
-    //   });
-    //   firstName.value = "";
-    //   lastName.value = "";
-    //   email.value = "";
-    //   msg.value = "";
-    // });
+        firstName.value = "";
+        lastName.value = "";
+        email.value = "";
+        msg.value = "";
+      });
   }
 });
