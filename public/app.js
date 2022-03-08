@@ -124,18 +124,30 @@ send.addEventListener("click", () => {
         msg: msg.value,
       }),
     };
-    return fetch("/mail", options)
-      .then((res) => res.json())
-      .then((data) => {
+    return fetch("/mail", options).then((res) => {
+      if (res.status === 200) {
         Swal.fire({
-          title: data,
-          padding: "3em",
-          color: "#560bad",
+          icon: "success",
+          title: "Your message has been sent Successfully!",
         });
-        firstName.value = "";
-        lastName.value = "";
-        email.value = "";
-        msg.value = "";
-      });
+      } else {
+        Swal.fire({
+          icon: "error",
+          title: "Error, please try agian!",
+        });
+      }
+    });
+    // .then((res) => res.json())
+    // .then((data) => {
+    //   Swal.fire({
+    //     title: data,
+    //     padding: "3em",
+    //     color: "#560bad",
+    //   });
+    //   firstName.value = "";
+    //   lastName.value = "";
+    //   email.value = "";
+    //   msg.value = "";
+    // });
   }
 });
