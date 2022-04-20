@@ -139,16 +139,4 @@ send.addEventListener("click", () => {
   }
 });
 
-function tanks() {
-  Swal.fire({
-    title: "Gracias por contactarme, Pronto estare respondiendo",
-    showClass: {
-      popup: "animate__animated animate__fadeInDown",
-    },
-    hideClass: {
-      popup: "animate__animated animate__fadeOutUp",
-    },
-  }).then(function () {
-    window.location = "/";
-  });
-}
+
