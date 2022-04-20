@@ -15,6 +15,10 @@ app.use(express.json());
 app.get("/", (req, res) => {
   res.sendFile(path.join(initialPath, "index.html"));
 });
+
+app.get("/tanks", (req, res) => {
+  res.sendFile(path.join(initialPath, "tanks.html"));
+});
 app.post("/mail", (req, res) => {
   const { firstName, lastName, email, msg } = req.body;
 
@@ -69,6 +73,6 @@ app.post("/mail", (req, res) => {
   }
   sendMail();
 });
-app.listen(5000, () => {
+app.listen(process.env.PORT || 5000, () => {
   console.log("servidor iniciado en puerto 5000");
 });

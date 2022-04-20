@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Andrés Hoyos</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/media.css" />
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <!-- navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="navMedia" hidden>
+        <a href="#"><img src="./images/home.png" alt="" title="Home" /></a>
+        <a href="#about-section"
+          ><img src="./images/about.png" alt="" title="About me"
+        /></a>
+        <a href="#project-section"
+          ><img src="./images/projects.png" alt="" title="Projects"
+        /></a>
+        <a href="#contact-section"
+          ><img src="./images/contact.png" alt="" title="Contact"
+        /></a>
+      </div>
+      <div class="navMedia navText" hidden>
+        <span>Home</span>
+        <span>About</span>
+        <span>Projects</span>
+        <span>Contact</span>
+      </div>
+      <!-- <h1 class="brand">Logo</h1> -->
+      <div class="toggle-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <ul class="links_container">
+        <li class="links_item"><a href="#" class="link active">Home</a></li>
+        <li class="links_item">
+          <a href="#about-section" class="link">Sobre mí</a>
+        </li>
+        <li class="links_item">
+          <a href="#project-section" class="link">Proyectos</a>
+        </li>
+        <li class="links_item">
+          <a href="#contact-section" class="link">Contacto</a>
+        </li>
+      </ul>
+    </nav>
+    <!-- home section -->
+    <section class="home">
+      <div
+        class="hero-content"
+        data-aos="zoom-in-right"
+        data-aos-duration="2000"
+      >
+        <h1 class="hero-heading">
+          <span class="highligth">Hola, </span>soy Andrés
+        </h1>
+        <p class="profession">Desarrollador Web / Tester QA</p>
+        <p class="info">
+          Desarrollador y Tester QA en formación, en busca de nuevos desafios
+          que me permitan continuar aprendiendo y creciendo tanto personal como
+          profesionalmente
+        </p>
+        <button onclick="window.location.href='#contact-section'">
+          Contacto
+        </button>
+        <div class="linkContact" hidden>
+          <a href="https://github.com/andhoyos" target="_blank"
+            ><img class="img-git" src="images/git.png" alt="git"
+          /></a>
+          <a
+            href="https://www.linkedin.com/in/andres-fabian-hoyos-9bb161189"
+            target="_blank"
+            ><img class="img-linkedin" src="images/linkedin.png" alt="linkedin"
+          /></a>
+        </div>
+      </div>
+      <img
+        src="./images/cv.jpg"
+        class="home-image"
+        alt=""
+        data-aos="fade-down"
+        data-aos-duration="2000"
+      />
+    </section>
+    <!-- about section -->
+    <section class="about" id="about-section">
+      <h2 class="heading">sobre <span class="highligth">mí</span></h2>
+      <div class="separation"></div>
+      <div class="about-container">
+        <div
+          class="left-col"
+          data-aos="zoom-out-right"
+          data-aos-duration="2000"
+        >
+          <img src="./images/about.jpg" class="about-image" alt="" />
+        </div>
+        <div class="right-col" data-aos="fade-up-left" data-aos-duration="2000">
+          <p class="about-para">
+            Inicie a dar mis primeros pasos en IT desde 2020 tanto en desarrollo
+            web como en testing QA, siempre trato de continuar aprendiendo tanto
+            de manera formal como autodidacta, en mis tiempos libres veo series
+            y peliculas, soy fan de los simpsons
+          </p>
+          <button onclick="downloadBtn()">download cv</button>
+          <a id="download" href="cv_Andres_Hoyos.pdf" download hidden></a>
+        </div>
+      </div>
+      <h2 class="heading">Tecnologías</h2>
+      <div class="separation"></div>
+      <div
+        class="skill-container"
+        data-aos="zoom-in-up"
+        data-aos-duration="2000"
+      >
+        <div class="skill-card" style="--bg: #f06529">
+          <p class="skill">HTML</p>
+        </div>
+        <div class="skill-card" style="--bg: #5ed9fb">
+          <p class="skill">CSS</p>
+        </div>
+        <div class="skill-card large" style="--bg: #f7df1e">
+          <p class="skill">JavaScript</p>
+        </div>
+        <div class="skill-card" style="--bg: #326690">
+          <p class="skill">NodeJS</p>
+        </div>
+        <div class="skill-card" style="--bg: #83cd29">
+          <p class="skill">ReactJS</p>
+        </div>
+        <div class="skill-card" style="--bg: #cc6699">
+          <p class="skill">MongoDB</p>
+        </div>
+        <div class="skill-card" style="--bg: #379ad6">
+          <p class="skill">MySQL</p>
+        </div>
+      </div>
+    </section>
+    <!-- project section -->
+    <section class="project" id="project-section">
+      <h2 class="heading">Proyect<span class="highligth">s</span></h2>
+      <div class="separation"></div>
+      <!-- <div class="filters">
+        <button class="filter-btn active" id="all">all</button>
+      </div> -->
+      <div class="project-container"></div>
+    </section>
+    <!-- contact section -->
+    <section class="contact" id="contact-section">
+      <h2 class="heading">Contact<span class="highligth"> me</span></h2>
+      <div class="separation"></div>
+
+      <div class="contact-form" data-aos="zoom-in-up" data-aos-duration="2000">
+        <form
+          id="contact-form"
+          action="https://formsubmit.io/send/c9b26f68-ad5e-4b98-bafd-2c6d55ba7c67"
+          method="POST"
+        >
+          <input name="_redirect" type="hidden" id="name" value="/tanks" />
+          <div class="name">
+            <input
+              type="text"
+              class="first-name"
+              placeholder="first-name"
+              required
+            />
+            <input
+              type="text"
+              class="last-name"
+              placeholder="last-name"
+              required
+            />
+          </div>
+          <input type="email" class="email" placeholder="email" required />
+          <textarea class="message" placeholder="message" required></textarea>
+          <input type="submit" value="hola" />
+          <button class="send" type="submit">
+            <div class="svg-wrapper-1">
+              <div class="svg-wrapper">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  height="24"
+                >
+                  <path fill="none" d="M0 0h24v24H0z"></path>
+                  <path
+                    fill="currentColor"
+                    d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+
+            <span>Send</span>
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div>
+        Andrés Hoyos &copy; <span class="date"></span>
+        <a href="https://github.com/andhoyos" target="_blank"
+          ><img class="img-git" src="images/git.png" alt="git"
+        /></a>
+        <a
+          href="https://www.linkedin.com/in/andres-fabian-hoyos-9bb161189"
+          target="_blank"
+          ><img class="img-linkedin" src="images/linkedin.png" alt="linkedin"
+        /></a>
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="projects.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
