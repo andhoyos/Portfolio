@@ -30,7 +30,7 @@ app.post("/mail", (req,res)=>{
   const message = {
     to: 'andresfabianhoyos@gmail.com', // Change to your recipient
     from: 'and0318@hotmail.com', // Change to your verified sender
-    subject: 'Sending with SendGrid is Fun',
+    subject: 'Contacto Portfolio',
     text: `First name: ${firstName},
     \nLast name: ${lastName},
     \nEmail: ${email},
