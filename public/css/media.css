@@ -15,7 +15,7 @@
     position: absolute;
     width: 100%;
     height: 2px;
-    background: #fff;
+    background: #1a202c;
     top: 30%;
     transition: 0.5s;
   }
@@ -40,7 +40,7 @@
   .links_container {
     position: absolute;
     top: 60px;
-    background: #1a202c;
+    background: rgb(206 255 245);
     width: 100%;
     left: 0;
     padding: 0 10vw;
@@ -68,13 +68,13 @@
     padding: 50px;
   }
 
-  .home-image {
+  /* .home-image {
     margin-top: 100px !important;
     align-self: inherit;
     margin: inherit;
     height: 180px;
     width: 180px;
-  }
+  } */
 
   .hero-content {
     width: 70%;
@@ -107,7 +107,7 @@
 /* mobile view */
 @media (max-width: 500px) {
   html {
-    font: size 12px;
+    font-size: 12px;
   }
   p,
   .sub-heading,
@@ -118,17 +118,19 @@
   }
 
   .navbar {
+    background: #00bfa6;
     display: initial;
     border-top: 2px solid;
-    border-radius: 8px;
+    border-radius: 8px 8px 0 0;
     bottom: 0;
-    top: unset;
+    top: revert;
     padding: 0 10px;
     height: 55px;
   }
   .links_container,
   .toggle-btn,
-  footer {
+  footer,
+  .content_img_form {
     display: none;
   }
 
@@ -137,7 +139,9 @@
   }
 
   .contact-form {
-    margin-bottom: 8vh;
+    margin-bottom: 0;
+    width: 100%;
+    padding: 5%;
   }
   .navMedia {
     display: grid;
@@ -151,7 +155,8 @@
   }
 
   .home-image {
-    margin-top: 10px !important;
+    margin: auto;
+    width: 100%;
   }
   .about-image {
     width: 180px;
@@ -174,7 +179,7 @@
   .name input {
     width: 100%;
   }
-  .first-name {
+  /* .first-name {
     margin-bottom: 20px !important;
-  }
+  } */
 }

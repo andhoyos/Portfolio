@@ -5,10 +5,23 @@
 }
 
 :root {
-  --color: #fff;
-  --background: #1a202c;
-  --primary-color: #3f51b5;
+  /* --color: #fff; */
+  --color: #1a202c;
+  --color-btn: #fff;
+  /* --background: #1a202c; */
+  /* --primary-color: #3f51b5; */
+  --primary-color: #0fd583;
   --secondary-color: #560bad;
+  --background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgb(206 255 245) 100%
+  );
+  --background-2: linear-gradient(
+    0deg,
+    rgb(233 232 232) 0%,
+    rgb(206 255 245) 100%
+  );
 }
 
 html {
@@ -18,7 +31,7 @@ html {
 body {
   width: 100%;
   position: relative;
-  background: var(--background);
+  background: var(--background-2);
   color: var(--color);
   font-family: "roboto", sans-serif;
 }
@@ -31,12 +44,15 @@ body {
   left: 0;
   width: 100vw;
   height: 60px;
-  background: var(--background);
+  /* background: var(--background); */
+  background: rgb(206 255 245);
   padding: 0 10vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
   z-index: 9;
+  transition: transform 0.4s;
+  transition: all 0.4s ease 0.4s;
 }
 
 .brand {
@@ -97,17 +113,77 @@ body {
   height: 2em;
 }
 
+/* From uiverse.io by @satyamchaudharydev */
+/* The switch - the box around the slider */
+.switch {
+  position: fixed;
+  top: 65px;
+  right: 1%;
+  z-index: 1;
+  --width-of-switch: 3.5em;
+  --height-of-switch: 2em;
+  /* size of sliding icon -- sun and moon */
+  --size-of-icon: 1.4em;
+  /* it is like a inline-padding of switch */
+  --slider-offset: 0.3em;
+  /* position: relative; */
+  width: var(--width-of-switch);
+  height: var(--height-of-switch);
+  transition: all 0.4s ease 0.4s;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #00bfa6;
+  transition: 0.4s;
+  border-radius: 30px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: var(--size-of-icon, 1.4em);
+  width: var(--size-of-icon, 1.4em);
+  border-radius: 20px;
+  left: var(--slider-offset, 0.3em);
+  top: 50%;
+  transform: translateY(-50%);
+  background: linear-gradient(40deg, #ff0080, #ff8c00 70%);
+  transition: 0.4s;
+}
+
+input:checked + .slider:before {
+  left: calc(100% - (var(--size-of-icon, 1.4em) + var(--slider-offset, 0.3em)));
+  background: #00bfa6;
+  /* change the value of second inset in box-shadow to change the angle and direction of the moon  */
+  box-shadow: inset -3px -2px 5px -2px #8983f7, inset -10px -4px 0 0 #560bad;
+}
+
 /* Home section */
 .home {
-  background-image: url(../images/971.jpg);
+  /* background-image: url(../images/971.jpg);
   background-attachment: fixed;
   background-position: center;
-  background-size: cover;
+  background-size: cover; */
+  /* background: var(--background); */
   width: 100%;
   min-height: calc(100vh - 60px);
   height: auto;
-  margin-top: 60px;
-  padding: 0 10vw;
+  /* margin-top: 60px; */
+  padding: 60px 10vw 0 10vw;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -218,13 +294,16 @@ button:active:before {
 }
 /* From cssbuttons.io by @adamgiebl */
 .send {
-  margin: auto;
+  margin: 5% auto auto;
   padding: 0.7em 1em;
   padding-left: 0.9em;
   display: flex;
   align-items: center;
+  background: #00bfa6;
+  color: var(--color-btn);
   overflow: hidden;
   transition: all 0.2s;
+  border: none;
 }
 
 .send span {
@@ -268,9 +347,10 @@ button:active:before {
 .home-image {
   align-self: normal;
   margin: 100px auto;
-  height: 250px;
+  width: 40vw;
+  /* height: 250px;
   border-radius: 160px;
-  border: 10px solid var(--primary-color);
+  border: 10px solid var(--primary-color); */
 }
 
 /* about section */
@@ -324,8 +404,7 @@ button:active:before {
   transform: rotate(-30deg);
 } */
 
-.about-image,
-.home-image {
+.about-image {
   width: 250px;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.25);
 }
@@ -372,7 +451,7 @@ button:active:before {
   background: var(--bg);
 }
 .skill-card:hover .skill {
-  color: var(--color);
+  color: var(--color-btn);
 }
 
 /* project */
@@ -402,35 +481,40 @@ button:active:before {
 }
 .project-card .content {
   position: absolute;
-  top: 0;
+  bottom: 0;
   left: 0;
   width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.7);
+  height: 70%;
+  background: rgba(0, 0, 0, 0.8);
   display: flex;
   justify-content: center;
   align-items: center;
   transition: 0.5s;
   text-transform: capitalize;
   opacity: 0;
+  border-radius: 0 0 15px 15px;
 }
 .project-name {
+  color: var(--color-btn);
   position: absolute;
-  top: 20%;
+  top: 10%;
   font-weight: 300;
   font-size: 2rem;
   text-align: center;
 }
 .tags {
+  color: var(--color-btn);
   text-transform: none;
   position: absolute;
-  bottom: 10%;
+
   opacity: 0.7;
   width: 90%;
 }
-
+.btn-repo {
+  position: absolute;
+  bottom: 0;
+}
 .tags h3 {
-  color: var(--color);
   font-weight: bold;
 }
 .project-card:hover .content {
@@ -439,9 +523,14 @@ button:active:before {
 
 /* contact form */
 .contact-form {
-  width: 100%;
-  margin-top: 100px;
+  width: 50%;
+  margin: auto;
+  padding: 3%;
   position: relative;
+  background: var(--background-2);
+  box-shadow: 0 10px 10px rgb(0 0 0 / 25%);
+  border-radius: 15px;
+  color: var(--primary-color);
 }
 .contact-form input,
 .message {
@@ -450,11 +539,10 @@ button:active:before {
   height: 50px;
   padding: 20px;
   border-radius: 5px;
-  background: #000;
   color: var(--color);
-  border: none;
+  border: 1px #c3c1c1 solid;
+  background: none;
   outline: none;
-  margin: 30px 0;
   text-transform: capitalize;
   resize: none;
 }
@@ -466,20 +554,38 @@ button:active:before {
   display: flex;
   justify-content: space-between;
 }
-
-.name input {
+.tit-input {
+  font-size: 12px;
+  padding-top: 5%;
+  text-indent: 2px;
+}
+/* .name input {
   width: 49%;
   margin: 0;
-}
+} */
 .message {
   height: 200px;
 }
-
+.content-form {
+  display: flex;
+  margin: 10% 0;
+}
+.content_img_form {
+  width: 45%;
+  padding-top: 100px;
+}
+.content_img_form img {
+  width: 100%;
+}
+.slider-img-form {
+  display: none;
+}
 /* footer */
 
 .footer {
   text-align: center;
-  background-color: #3f51b5;
+  background: #00bfa6;
+  color: var(--color-btn);
   text-transform: capitalize;
 }
 
@@ -488,9 +594,9 @@ button:active:before {
   display: inline-flex;
 }
 
-.img-linkedin {
+.img-linkedin,
+.img-git,
+.img-what {
   height: 50px;
-}
-.img-git {
-  height: 55px;
+  padding: 5px;
 }

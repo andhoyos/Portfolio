@@ -2,6 +2,7 @@ AOS.init();
 //toggle
 const toggleBtn = document.querySelector(".toggle-btn");
 const linkContainer = document.querySelector(".links_container");
+const nav = document.querySelector(".navbar");
 
 toggleBtn.addEventListener("click", () => {
   toggleBtn.classList.toggle("active");
@@ -53,12 +54,84 @@ projects.forEach((project) => {
               !project.description ? "" : project.description
             } 
             Tecnologias usadas:
-            <h3>${project.tags}</h3>
+              <h3>${project.tags}</h3>
             </span>
+            <a href="${project.git}" class="btn-repo" target="_blank">
+              <button>Repo</button>
+            </a>
           </div>
   </div>
   `;
 });
+
+const check = document.getElementById("theme");
+const body = document.querySelector("body");
+const separation = document.querySelector(".separation");
+
+check.addEventListener("change", (ev) => {
+  let menu = toggleBtn.children;
+  if (ev.target.checked) {
+    body.style.color = "var(--color-btn)";
+    body.style.background = "var(--color)";
+    nav.style.background = "var(--color)";
+    linkContainer.style.background = "var(--color)";
+    for (let i = 0; i < menu.length; i++) {
+      menu[i].style.background = "var(--color-btn)";
+    }
+    links.forEach((link) => {
+      link.style.color = "var(--color-btn)";
+    });
+
+    console.log(menu);
+  } else {
+    console.log("no-check");
+    body.style.color = "var(--color)";
+    body.style.background = "var(--background)";
+    if (screen.width > 500) {
+      nav.style.background = "rgb(206 255 245)";
+    } else {
+      nav.style.background = "#00bfa6";
+    }
+    linkContainer.style.background = "inherit";
+    for (let i = 0; i < menu.length; i++) {
+      menu[i].style.background = "var(--color)";
+    }
+    links.forEach((link) => {
+      link.style.color = "var(--color)";
+    });
+  }
+});
+
+var i = 0;
+let slideIndex = 1;
+
+function plusDivs(n) {
+  showDivs((slideIndex += n));
+}
+
+function showDivs(n) {
+  let i;
+  const slide = document.getElementsByClassName("slider-img-form");
+
+  if (n > slide.length) {
+    slideIndex = 1;
+  }
+  if (n < 1) {
+    slideIndex = slide.length;
+  }
+
+  for (i = 0; i < slide.length; i++) {
+    slide[i].style.display = "none";
+  }
+
+  slide[slideIndex - 1].style.display = "block";
+}
+
+function callDivs() {
+  plusDivs(1);
+}
+showDivs(slideIndex);
+setInterval(callDivs, 15000);
 
 //contact form
 
@@ -139,4 +212,32 @@ send.addEventListener("click", () => {
   }
 });
 
+var prevScrollpos = window.pageYOffset;
+window.onscroll = function () {
+  let nav = document.querySelector(".navbar");
+  let check = document.querySelector(".switch");
+  var currentScrollPos = window.pageYOffset;
+  if (screen.width > 500) {
+    nav.style.bottom = "auto";
+    if (prevScrollpos < currentScrollPos) {
+      nav.style.top = "-100px";
+      check.style.top = "-30px";
+      linkContainer.classList.remove("show");
+      toggleBtn.classList.remove("active");
+    } else {
+      nav.style.top = "0";
+      check.style.top = "65px";
+    }
+  } else {
+    nav.style.top = "auto";
+    if (prevScrollpos < currentScrollPos) {
+      nav.style.bottom = "-100px";
+      check.style.top = "-30px";
+    } else {
+      nav.style.bottom = "0";
+      check.style.top = "2%";
+    }
+  }
 
+  prevScrollpos = currentScrollPos;
+};
