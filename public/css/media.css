@@ -137,7 +137,9 @@
   .linkContact {
     display: block;
   }
-
+  .switch {
+    top: 2%;
+  }
   .contact-form {
     margin-bottom: 0;
     width: 100%;
