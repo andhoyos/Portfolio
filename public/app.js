@@ -137,17 +137,11 @@ setInterval(callDivs, 15000);
 
 const send = document.querySelector(".send");
 const firstName = document.querySelector(".first-name");
-const lastName = document.querySelector(".last-name");
 const email = document.querySelector(".email");
 const msg = document.querySelector(".message");
 
 send.addEventListener("click", () => {
-  if (
-    firstName.value.length &&
-    lastName.value.length &&
-    email.value.length &&
-    msg.value.length
-  ) {
+  if (firstName.value.length && email.value.length && msg.value.length) {
     Swal.fire({
       background: "bottom",
       timerProgressBar: true,
@@ -192,7 +186,6 @@ send.addEventListener("click", () => {
       }),
       body: JSON.stringify({
         firstName: firstName.value,
-        lastName: lastName.value,
         email: email.value,
         msg: msg.value,
       }),
@@ -205,7 +198,6 @@ send.addEventListener("click", () => {
           color: "#560bad",
         });
         firstName.value = "";
-        lastName.value = "";
         email.value = "";
         msg.value = "";
       });

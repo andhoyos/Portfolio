@@ -4,13 +4,12 @@ const path = require("path");
 const dotenv = require("dotenv");
 // const { google } = require("googleapis");
 // const { datacatalog } = require("googleapis/build/src/apis/datacatalog");
-const sgMail = require('@sendgrid/mail')
-
+const sgMail = require("@sendgrid/mail");
 
 dotenv.config();
-process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0; 
-const api_key = process.env.SENDGRID_API_KEY
-sgMail.setApiKey(api_key)
+process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
+const api_key = process.env.SENDGRID_API_KEY;
+sgMail.setApiKey(api_key);
 
 let initialPath = path.join(__dirname, "public");
 const app = express();
@@ -24,32 +23,30 @@ app.get("/", (req, res) => {
 // app.get("/tanks", (req, res) => {
 //   res.sendFile(path.join(initialPath, "tanks.html"));
 // });
-app.post("/mail", (req,res)=>{
-  const { firstName, lastName, email, msg } = req.body;
+app.post("/mail", (req, res) => {
+  const { firstName, email, msg } = req.body;
 
   const message = {
-    to: 'andresfabianhoyos@gmail.com', // Change to your recipient
-    from: 'and0318@hotmail.com', // Change to your verified sender
-    subject: 'Contacto Portfolio',
+    to: "andresfabianhoyos@gmail.com", // Change to your recipient
+    from: "and0318@hotmail.com", // Change to your verified sender
+    subject: "Contacto Portfolio",
     text: `First name: ${firstName},
-    \nLast name: ${lastName},
     \nEmail: ${email},
     \nMessage: ${msg}`,
-   
-  }
-  
+  };
+
   sgMail
     .send(message)
     .then((response) => {
-      console.log(response[0].statusCode)
-      console.log(response[0].headers)
+      console.log(response[0].statusCode);
+      console.log(response[0].headers);
       res.json("Thank you for contacting me, I will respond soon");
     })
     .catch((error) => {
-      console.error(error)
+      console.error(error);
       res.json("Opps, an unexpected error has occurred please, try again.");
-    })
-})
+    });
+});
 
 // app.post("/mail", (req, res) => {
 //   const { firstName, lastName, email, msg } = req.body;
