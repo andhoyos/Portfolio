@@ -8,6 +8,7 @@ const sgMail = require("@sendgrid/mail");
 
 dotenv.config();
 process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
+
 const api_key = process.env.SENDGRID_API_KEY;
 sgMail.setApiKey(api_key);
 
@@ -25,7 +26,7 @@ app.get("/", (req, res) => {
 // });
 app.post("/mail", (req, res) => {
   const { firstName, email, msg } = req.body;
-
+  console.log(req.body);
   const message = {
     to: "andresfabianhoyos@gmail.com", // Change to your recipient
     from: "and0318@hotmail.com", // Change to your verified sender
