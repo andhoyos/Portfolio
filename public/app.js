@@ -140,7 +140,33 @@ const firstName = document.querySelector(".first-name");
 const email = document.querySelector(".email");
 const msg = document.querySelector(".message");
 
-send.addEventListener("click", () => {
+// Función para enviar el correo electrónico
+async function sendEmail(firstName, email, msg) {
+  try {
+    const response = await axios.post("/mail", {
+      firstName: firstName,
+      email: email,
+      msg: msg,
+    });
+
+    // Mostrar respuesta exitosa
+    Swal.fire({
+      title: response.data,
+      padding: "3em",
+      color: "#560bad",
+    });
+
+    // Limpiar campos del formulario
+    firstName.value = "";
+    email.value = "";
+    msg.value = "";
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+// Evento click en el botón "send"
+send.addEventListener("click", async () => {
   if (firstName.value.length && email.value.length && msg.value.length) {
     Swal.fire({
       background: "bottom",
@@ -150,34 +176,15 @@ send.addEventListener("click", () => {
         const b = Swal.getHtmlContainer().querySelector("b");
       },
     });
+
     const loader = document.querySelector(".swal2-loader");
     loader.style =
       "width: 80px; height: 80px; border: 6px solid; border-color: #2778c4 transparent #2778c4 transparent;";
-    axios({
-      method: "post",
-      url: "/mail",
-      data: {
-        firstName: firstName.value,
-        email: email.value,
-        msg: msg.value,
-        // body: JSON.stringify({
-        // }),
-      },
-    })
-      .then(function (res) {
-        console.log(res.data);
-        Swal.fire({
-          title: res.data,
-          padding: "3em",
-          color: "#560bad",
-        });
-        firstName.value = "";
-        email.value = "";
-        msg.value = "";
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+
+    await sendEmail(firstName.value, email.value, msg.value);
+  }
+});
+
 
     // fetch("/mail", {
     //   method: "POST",
@@ -202,8 +209,7 @@ send.addEventListener("click", () => {
     //     email.value = "";
     //     msg.value = "";
     //   });
-  }
-});
+
 
 var prevScrollpos = window.pageYOffset;
 window.onscroll = function () {
