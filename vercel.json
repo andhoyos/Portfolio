@@ -1,0 +1,12 @@
+{
+  "routes": [
+    {
+      "src": "/mail",
+      "dest": "/server.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/public/$1"
+    }
+  ]
+}
