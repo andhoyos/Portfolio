@@ -1,7 +1,9 @@
 {
+  "version": 2,
   "routes": [
     {
       "src": "/mail",
+      "methods": ["POST"],
       "dest": "/server.js"
     },
     {
